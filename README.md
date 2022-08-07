@@ -7,4 +7,4 @@ The app features the current temperature at the designated location, as well as 
 
 Visual :
 
-![alt text](https://github.com/Etiennepp/weather-app/blob/20512667874a14abb7eb1f08723d8f28f57f68f1/assets/visual.png)
+![alt text](https://github.com/Etiennepp/weather-app/blob/3163ef3b3089f83be672e30959965994f895b2a9/assets/visual.png)
