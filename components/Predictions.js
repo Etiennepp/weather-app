@@ -7,12 +7,17 @@ const convertToCelsius = function (temp) {
 };
 
 const Predictions = (props) => {
+   // console.log(props.forecast[0]);
    return (
       <ScrollView horizontal style={styles.container}>
-         <PredictionHour></PredictionHour>
-         <PredictionHour></PredictionHour>
-         <PredictionHour></PredictionHour>
-         <PredictionHour></PredictionHour>
+         {props.forecast.map((item, key) => (
+            <PredictionHour
+               key={key}
+               timestamp={item["dt"]}
+               temp={item["main"]["temp"]}
+               icon={item["weather"][0]["icon"]}
+            ></PredictionHour>
+         ))}
       </ScrollView>
    );
 };

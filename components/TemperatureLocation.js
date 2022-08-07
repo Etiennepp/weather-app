@@ -6,19 +6,21 @@ const convertToCelsius = function (temp) {
 };
 
 const TemperatureLocation = (props) => {
-   const [temperature, setTemperature] = useState("--");
    return (
       <View style={styles.weather}>
          <View style={styles.current}>
-            <Text style={styles.temperature}>{convertToCelsius(props.current)}°</Text>
+            <Text style={styles.temperature}>{props.current != "" ? convertToCelsius(props.current) : "--"}°</Text>
             <Image
                style={styles.icon}
                source={{
-                  uri: "http://openweathermap.org/img/wn/10d@4x.png",
+                  uri: "http://openweathermap.org/img/wn/" + props.icon + "@4x.png",
                }}
             />
          </View>
-         <Text style={styles.minmax}>Min 18° Max 33°</Text>
+         <Text style={styles.minmax}>
+            Min {props.min != "" ? convertToCelsius(props.min) : "--"}° Max{" "}
+            {props.max != "" ? convertToCelsius(props.max) : "--"}°
+         </Text>
          <Text style={styles.location}>Lyon</Text>
       </View>
    );
@@ -26,7 +28,7 @@ const TemperatureLocation = (props) => {
 
 const styles = StyleSheet.create({
    weather: {
-      top: 40,
+      top: 30,
       left: 30,
    },
    current: {
@@ -37,7 +39,7 @@ const styles = StyleSheet.create({
       fontWeight: "200",
       fontSize: 120,
       color: "white",
-      height: 120,
+      height: 130,
    },
    location: {
       fontSize: 40,
